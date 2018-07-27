@@ -1,0 +1,28 @@
+{
+	"name": "ELB Latency high in AZ {{availability-zone.name}}",
+	"type": "metric alert",
+	"query": "avg(last_1h):avg:aws.elb.latency{*} by {availability-zone} > 0.5",
+	"message": "ELB Latency high in AZ {{availability-zone.name}}",
+	"tags": [
+		"aws",
+		"elb",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"require_full_window": true,
+		"new_host_delay": 300,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 0.5,
+			"warning": 0.3
+		}
+	}
+}
