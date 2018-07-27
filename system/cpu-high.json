@@ -1,0 +1,27 @@
+{
+	"name": "CPU Load is very high on {{host.name}} - {{host.ip}}",
+	"type": "metric alert",
+	"query": "avg(last_5m):avg:system.cpu.system{*} by {host} > 80",
+	"message": "CPU Load is very high on {{host.name}} - {{host.ip}}",
+	"tags": [
+		"system",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"new_host_delay": 300,
+		"require_full_window": true,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 80,
+			"warning": 70
+		}
+	}
+}
