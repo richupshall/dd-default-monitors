@@ -1,0 +1,27 @@
+{
+	"name": "AWS - Status Check Failed for EC2 instance",
+	"type": "metric alert",
+	"query": "avg(last_1h):avg:aws.ec2.status_check_failed{*} >= 1",
+	"message": "{{#is_alert}}\n\nInstance {{name.name}} has failed instance checks on Cloudwatch{{/is_alert}}",
+	"tags": [
+		"aws",
+		"ec2",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 1,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": 60,
+		"require_full_window": true,
+		"new_host_delay": 300,
+		"notify_no_data": true,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 1
+		}
+	}
+}
