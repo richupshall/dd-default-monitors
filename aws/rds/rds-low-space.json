@@ -1,0 +1,28 @@
+{
+	"name": "AWS - RDS low on Free Storage",
+	"type": "query alert",
+	"query": "avg(last_1h):avg:aws.rds.free_storage_space{*} < 10000000000",
+	"message": "{{#is_alert}}\n\nRDS {{name.name}} disk space has reached {{value}} Gb free on Cloudwatch{{/is_alert}}",
+	"tags": [
+		"aws",
+		"rds",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"require_full_window": true,
+		"new_host_delay": 300,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 10000000000,
+			"warning": 50000000000
+		}
+	}
+}

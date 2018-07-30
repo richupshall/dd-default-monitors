@@ -1,0 +1,27 @@
+{
+	"name": "AWS - CPU Credit Balance is low for EC2 instance",
+	"type": "query alert",
+	"query": "avg(last_1h):avg:aws.ec2.cpucredit_balance{*} by {host} < 10",
+	"message": "{{#is_alert}}\n\n{{host.name}} CPU Credit Balance is low, with {{value}} credits left{{/is_alert}}",
+	"tags": [
+		"aws",
+		"ec2",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"new_host_delay": 300,
+		"require_full_window": true,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 10
+		}
+	}
+}
