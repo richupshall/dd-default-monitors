@@ -5,7 +5,7 @@
 	"message": "Disk Queue Length is high on device {{device.name}} attached to {{host.name}}",
 	"tags": [
 		"aws",
-		"elb",
+		"ebs",
 		"default"
 	],
 	"options": {
