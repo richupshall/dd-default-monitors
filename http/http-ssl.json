@@ -1,0 +1,28 @@
+{
+	"name": "SSL cert for {{name.name}} will expire in {{value}} days",
+	"type": "metric alert",
+	"query": "avg(last_5m):avg:http.ssl.days_left{*} by {name} <= 7",
+	"message": "SSL cert for {{name.name}} will expire in {{value}} days",
+	"tags": [
+		"http",
+		"ssl",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"require_full_window": true,
+		"new_host_delay": 300,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 7,
+			"warning": 14
+		}
+	}
+}

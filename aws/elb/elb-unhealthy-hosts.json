@@ -1,0 +1,27 @@
+{
+	"name": "AWS - Load Balancer {{name.name}} is unhealthy",
+	"type": "metric alert",
+	"query": "avg(last_5m):max:aws.elb.un_healthy_host_count{*} by {name} >= 1",
+	"message": "Load Balancer {{name.name}} is unhealthy",
+	"tags": [
+		"aws",
+		"elb",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"new_host_delay": 300,
+		"require_full_window": true,
+		"notify_no_data": false,
+		"renotify_interval": "0",
+		"evaluation_delay": 900,
+		"escalation_message": "",
+		"no_data_timeframe": null,
+		"include_tags": false,
+		"thresholds": {
+			"critical": 1
+		}
+	}
+}

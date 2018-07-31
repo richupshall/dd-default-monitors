@@ -1,0 +1,26 @@
+{
+	"name": "Pingdom has reported {{check.name}} uptime below one day",
+	"type": "metric alert",
+	"query": "avg(last_1h):avg:pingdom.uptime{*} by {check} < 86400",
+	"message": "Pingdom has reported {{check.name}} uptime below one day",
+	"tags": [
+		"pingdom",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"require_full_window": true,
+		"new_host_delay": 300,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 86400
+		}
+	}
+}

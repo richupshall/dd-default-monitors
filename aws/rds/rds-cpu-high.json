@@ -1,0 +1,28 @@
+{
+	"name": "AWS - RDS high cpu on {{hostname.name}}",
+	"type": "query alert",
+	"query": "avg(last_10m):avg:aws.rds.cpuutilization{*} by {hostname} > 90",
+	"message": "AWS - RDS high cpu on {{hostname.name}}",
+	"tags": [
+		"aws",
+		"rds",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"silenced": {},
+		"include_tags": false,
+		"no_data_timeframe": null,
+		"require_full_window": true,
+		"new_host_delay": 300,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"thresholds": {
+			"critical": 90,
+			"warning": 80
+		}
+	}
+}
