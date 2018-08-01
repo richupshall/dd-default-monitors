@@ -3,7 +3,11 @@
 	"type": "metric alert",
 	"query": "min(last_1h):avg:aws.ec2.cpuutilization{*} by {host} > 90",
 	"message": "AWS CPU utilization high on host {{host.name}} {{host.ip}}",
-	"tags": [],
+	"tags": [
+		"aws",
+		"ec2",
+		"default"
+	],
 	"options": {
 		"timeout_h": 0,
 		"notify_no_data": false,

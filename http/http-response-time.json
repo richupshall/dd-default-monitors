@@ -1,0 +1,26 @@
+{
+	"name": "Response time for http check {{name.name}} is high",
+	"type": "metric alert",
+	"query": "avg(last_5m):avg:network.http.response_time{*} by {name} > 1",
+	"message": "Response time for http check {{name.name}} is high",
+	"tags": [
+		"http",
+		"default"
+	],
+	"options": {
+		"notify_audit": false,
+		"locked": false,
+		"timeout_h": 0,
+		"new_host_delay": 300,
+		"require_full_window": true,
+		"notify_no_data": false,
+		"renotify_interval": "0",
+		"escalation_message": "",
+		"no_data_timeframe": null,
+		"include_tags": false,
+		"thresholds": {
+			"critical": 1,
+			"warning": 0.5
+		}
+	}
+}
