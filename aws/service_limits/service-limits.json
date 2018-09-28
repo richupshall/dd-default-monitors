@@ -3,8 +3,12 @@
 	"type": "metric alert",
 	"query": "avg(last_5m):avg:aws.advisor.service_limit.usage_ratio{*} by {account-id,limit_name} > 0.9",
 	"message": "",
-	"tags": [],
-	"options": {
+	"tags": [
+                "aws",
+                "service_limits",
+                "default"
+        ],
+        "options": {
 		"notify_audit": false,
 		"locked": false,
 		"timeout_h": 0,
